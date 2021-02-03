@@ -1,0 +1,20 @@
+---
+  - name:
+    hosts: all
+    remote_user: miordache
+    become: yes
+    tasks:
+      - name: Ensure Docker is Installed
+        yum :
+          name: docker
+          update_cache: yes
+          state: present
+
+      - name: turn on service docker
+        service:
+          name: docker
+          enabled: yes
+          state: started
+      - debug:
+         msg: 'Docker is turned on'
+
