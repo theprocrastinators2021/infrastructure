@@ -62,5 +62,3 @@ resource "google_compute_instance" "devops-website" {
         }
     }
 }
-
-
