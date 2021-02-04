@@ -1,7 +1,7 @@
 #test
 #test2
 resource "google_compute_firewall" "devops-firewall" {
-  name    = "devops-firewall-test"
+  name    = "devops-firewall"
   network = "devops-network"
 
   allow {
@@ -15,7 +15,7 @@ resource "google_compute_firewall" "devops-firewall" {
 }
 
 resource "google_compute_firewall" "devops-firewall-2" {
-  name    = "devops-firewall-2-test2"
+  name    = "devops-firewall-2"
   network = "devops-network-2"
 
   allow {
@@ -29,7 +29,7 @@ resource "google_compute_firewall" "devops-firewall-2" {
 }
 
 resource "google_compute_subnetwork" "development-1" {
-  name          = "development-1-test"
+  name          = "development-1"
   ip_cidr_range = "172.16.10.0/24"
   region        = "europe-west3"
   network       = google_compute_network.devops-network.id
@@ -41,13 +41,13 @@ resource "google_compute_subnetwork" "development-1" {
 
 
 resource "google_compute_address" "static" {
-  name   = "static-test"
+  name   = "static"
   region = "europe-west3"
   network_tier = "STANDARD"
   }
 
 resource "google_compute_network" "devops-network" {
-  name = "devops-network-test"
+  name = "devops-network"
   auto_create_subnetworks = false
 }
 
@@ -56,7 +56,7 @@ resource "google_compute_network" "devops-network" {
 
 
 resource "google_compute_subnetwork" "development-2" {
-  name          = "development-2-test2"
+  name          = "development-2"
   ip_cidr_range = "172.16.20.0/24"
   region        = "europe-west3"
   network       = google_compute_network.devops-network-2.id
@@ -68,13 +68,13 @@ resource "google_compute_subnetwork" "development-2" {
 
 
 resource "google_compute_address" "static2" {
-  name   = "static2-test2"
+  name   = "static2"
   region = "europe-west3"
   network_tier = "STANDARD"
   }
 
 resource "google_compute_network" "devops-network-2" {
-  name = "devops-network-2-test2"
+  name = "devops-network-2"
   auto_create_subnetworks = false
 }
 
