@@ -1,7 +1,7 @@
 ---
   - name:
     hosts: all
-    remote_user: miordache
+    remote_user: ansible
     become: yes
     tasks:
       - name: Ensure Docker is Installed
