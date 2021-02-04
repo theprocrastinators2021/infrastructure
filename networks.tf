@@ -39,13 +39,13 @@ resource "google_compute_subnetwork" "development-1" {
 
 
 resource "google_compute_address" "static" {
-  name   = "static"
+  name   = "static-test1"
   region = "europe-west3"
   network_tier = "STANDARD"
   }
 
 resource "google_compute_network" "devops-network" {
-  name = "devops-network"
+  name = "devops-network-test1"
   auto_create_subnetworks = false
 }
 
@@ -66,13 +66,13 @@ resource "google_compute_subnetwork" "development-2" {
 
 
 resource "google_compute_address" "static2" {
-  name   = "static2"
+  name   = "static2-test2"
   region = "europe-west3"
   network_tier = "STANDARD"
   }
 
 resource "google_compute_network" "devops-network-2" {
-  name = "devops-network-2"
+  name = "devops-network-2-test2"
   auto_create_subnetworks = false
 }
 
