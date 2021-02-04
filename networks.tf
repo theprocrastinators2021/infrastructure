@@ -3,17 +3,27 @@ resource "google_compute_firewall" "devops-firewall" {
   network = "devops-network"
 
   allow {
-    protocol = "icmp"
+    protocol = "tcp"
+    ports    = ["22", "8080"]
   }
+
+  source_tags = ["devops-jenkins"]
+
+  depends_on = [google_compute_network.devops-network]
+}
+
+resource "google_compute_firewall" "devops-firewall-2" {
+  name    = "devops-firewall-2"
+  network = "devops-network-2"
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000"]
+    ports    = ["22", "9000", "9001"]
   }
 
-  source_tags = ["web"]
+  source_tags = ["devops-website"]
 
-  depends_on = [google_compute_network.devops-network]
+  depends_on = [google_compute_network.devops-network-2]
 }
 
 resource "google_compute_subnetwork" "development-1" {
