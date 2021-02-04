@@ -13,7 +13,7 @@ resource "google_compute_instance" "devops-jenkins" {
 
     boot_disk {
     initialize_params {
-        image = "centos-7-v20210122"
+        image = "https://www.googleapis.com/compute/v1/projects/ivory-amphora-301512/global/images/devops-image"
         }
     }
 
@@ -42,7 +42,7 @@ resource "google_compute_instance" "devops-website" {
 
     boot_disk {
     initialize_params {
-        image = "centos-7-v20210122"
+        image = "https://www.googleapis.com/compute/v1/projects/ivory-amphora-301512/global/images/devops-image"
         }
     }
 
